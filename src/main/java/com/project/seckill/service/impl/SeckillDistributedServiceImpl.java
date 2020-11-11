@@ -27,7 +27,13 @@ public class SeckillDistributedServiceImpl implements ISeckillDistributedService
 
 	@Autowired
     private SuccessKilledMapper successKilledMapper;
-	
+
+    /**
+     * redis锁
+     * @param seckillId 秒杀商品ID
+     * @param userId 用户ID
+     * @return
+     */
 	@Override
 	@Transactional
 	public Result startSeckilRedisLock(long seckillId,long userId) {
@@ -63,6 +69,13 @@ public class SeckillDistributedServiceImpl implements ISeckillDistributedService
 		}
 		return Result.ok(SeckillStatEnum.SUCCESS);
 	}
+
+    /**
+     * zk锁
+     * @param seckillId 秒杀商品ID
+     * @param userId 用户ID
+     * @return
+     */
 	@Override
 	@Transactional
 	public Result startSeckilZksLock(long seckillId, long userId) {
