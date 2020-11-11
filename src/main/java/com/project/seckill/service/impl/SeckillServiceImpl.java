@@ -68,7 +68,6 @@ public class SeckillServiceImpl implements ISeckillService {
 	@Servicelock
 	@Transactional(rollbackFor = Exception.class)
 	public Result startSeckilAopLock(long seckillId, long userId) {
-		//来自码云码友<马丁的早晨>的建议 使用AOP + 锁实现
         Seckill seckill = seckillMapper.selectById(seckillId);
         Long number = Long.valueOf(seckill.getNumber());
         if(number>0){
