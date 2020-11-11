@@ -101,7 +101,7 @@ class SeckillApplicationTests {
                             seckillService.startSeckilAopLock(secKillId, userId);
                             log.info("用户:{}秒杀商品成功", userId);
                         }else{
-                            log.info("用户:{}秒杀商品失败", userId);
+                            log.error("用户:{}秒杀商品失败", userId);
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
